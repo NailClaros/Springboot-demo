@@ -22,19 +22,19 @@ public class StudentController {
     // -> /Student/#
     @RequestMapping(value="/{id}", method = RequestMethod.GET)
     public Student getStudent(@PathVariable int id) {return studentService.getStudentById(id);}
-
+    // -> /Student/#
     @RequestMapping(value= "/{id}",method = RequestMethod.DELETE)
     public void deleteStudent(@PathVariable int id) {
         studentService.removeStudentById(id);
     }
-
+    // -> /Student/add#
     @RequestMapping(value="/add", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     public void addStudent(@RequestBody Student student) {
         studentService.addStudent(student);
     }
-
+    // -> /Student/update#
     @RequestMapping(value="/update", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void updateStudent(Student student) {
+    public void updateStudent(@RequestBody Student student) {
         studentService.updateStudent(student);
     }
 
