@@ -4,10 +4,13 @@ import com.example.demo.Entity.Student;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class StudentDao {
+@Qualifier("fakeData")
+public class StudentDao implements DB_FAKE_StudentDao {
 
     private static Map<Integer, Student> students;
 
@@ -23,18 +26,22 @@ public class StudentDao {
         };
     }
 
+    @Override
     public Collection<Student> getAllStudents(){
 
         return students.values();
     }
+    @Override
     public Student getStudentById(int id){
         return students.get(id);
     }
 
+    @Override
     public void removeStudentById(int id){
         students.remove(id);
     }
 
+    @Override
     public void addStudent(Student student){
         if (students.containsKey(student.getId())) {
             return;
@@ -44,6 +51,7 @@ public class StudentDao {
 
     }
 
+    @Override
     public void updateStudent(Student student){
         if (students.containsKey(student.getId())) {
             students.put(student.getId(), student);
