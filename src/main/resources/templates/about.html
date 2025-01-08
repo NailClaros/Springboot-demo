@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+    <link rel="preload" href="/images/backg-demo.jpg" as="image">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/about.css">
+</head>
+<body>
+<nav class="navbar">
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/about">About</a></li>
+    </ul>
+</nav>
+<img src="/images/nav-i.png" class="navbar-img">
+<a href="/">
+<img src="/images/logo.svg"
+     class="navbar-img-t"> </a>
+
+
+<script>
+    document.body.style.visibility = "hidden";
+    const bgImage = new Image();
+    bgImage.src = "/images/backg-demo.jpg";  <!-- Correct path here -->
+
+    bgImage.onload = function () {
+        document.body.style.visibility = "visible";
+    };
+</script>
+</body>
+</html>
